@@ -20,7 +20,6 @@ class AnalyzerState(TypedDict):
     raw_text : str 
     safety_scores : Annotated[dict[str , int],merge_score_dicts]
 
-
 #nodes 
 def toxicity_node(state: AnalyzerState) -> dict:
     print("\n [Branch 1] Analyzing Toxicity and Hate Speech...")
