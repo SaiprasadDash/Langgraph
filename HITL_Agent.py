@@ -4,14 +4,18 @@ from langgraph.graph.message import add_messages
 from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.types import interrupt, Command
-from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
+# from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
 
 load_dotenv()
 
 # writer llm
-writer_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
+writer_llm = ChatGroq(
+    model=os.getenv("GROQ_MODEL_2"),
+    temperature=0.7
+)
 
 # state building 
 class State(TypedDict):
